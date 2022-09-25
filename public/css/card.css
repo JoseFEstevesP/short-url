@@ -1,0 +1,76 @@
+:root {
+	--red: #dd3447;
+	--yellow: #ffc10b;
+	--blue: #0ccaef;
+}
+.content-card {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	flex-direction: column;
+	gap: 1.25em;
+}
+.card {
+	width: 20em;
+	padding: 0.625em;
+	font-size: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.625em;
+	background-color: var(--primary);
+	border: 0.125em solid var(--secondary);
+	border-radius: 0.3125em;
+	box-shadow: 0 0 0.1875em var(--secondary);
+}
+@media screen and (min-width: 1024px) {
+  .card{
+    width: 35rem;
+	flex-direction: row;
+  }
+}
+.card__urls {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.625em;
+}
+.card__links {
+	font-size: 1.2em;
+	font-weight: bold;
+	transform: scale(1);
+	transition: color 0.3s, transform 0.3s;
+}
+.card__links:active {
+	transform: scale(1.09);
+}
+@media (hover: hover) {
+	.card__links:hover {
+		color: #0bb6d7;
+		text-decoration: underline;
+	}
+}
+.card__btn {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.625em;
+}
+.btn--delete {
+	background-color: var(--red);
+	border: 0.125em solid var(--red);
+}
+.btn--modify {
+	background-color: var(--yellow);
+	border: 0.125em solid var(--yellow);
+}
+.btn--copy {
+	background-color: var(--blue);
+	border: 0.125em solid var(--blue);
+}
