@@ -12,8 +12,8 @@
 		>{{item.shortUrl}}</a>
 	</div>
 	<div class='card__btn'>
-		<a href='#' class='btn btn--delete'>Eliminar</a>
-		<a href='#' class='btn btn--modify'>Editar</a>
-		<a href='#' class='btn btn--copy'>Copiar</a>
+		<a href='/eliminar/{{item._id}}' class='btn btn--delete'>Eliminar</a>
+		<a href='/editar/{{item._id}}' class='btn btn--modify'>Editar</a>
+		<button type="button" title="copi" data-shortUrl="{{item.shortUrl}}" class='btn btn--copy'>Copiar</button>
 	</div>
 </article>

@@ -1,0 +1,31 @@
+{{#if url}}
+	<form action='/editar/{{url._id}}' method='post' class='form'>
+		<input
+			type='text'
+			name='origin'
+			placeholder='Agregar la url...'
+			class='form__input'
+			value='{{url.origin}}'
+		/>
+		<button
+			type='submit'
+			title='editar-url'
+			class='btn form__btn'
+			style="--bg:var(--yellow); --bc:var(--yellow);"
+		>Editar</button>
+	</form>
+{{else}}
+	<form action='/' method='post' class='form'>
+		<input
+			type='text'
+			name='origin'
+			placeholder='Agregar la url...'
+			class='form__input'
+		/>
+		<button
+			type='submit'
+			title='agregar-url'
+			class='btn form__btn'
+		>Agregar</button>
+	</form>
+{{/if}}

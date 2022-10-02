@@ -1,12 +1,18 @@
 const express = require('express');
+const {
+	leerUrl,
+	andUrl,
+	deleteUrl,
+	updateUrlForm,
+	updateUrl,
+	redirect,
+} = require('./../controller/homeController');
+const urlValidate = require('./../middlewares/urlValidate');
 const router = express.Router();
-router.get('/', (req, res) => {
-	const urls = [
-		{ origin: 'www.google.com/jose1', shortUrl: 'sjhduehduhe' },
-		{ origin: 'www.google.com/jose2', shortUrl: 'sjhduehduhe' },
-		{ origin: 'www.google.com/jose3', shortUrl: 'sjhduehduhe' },
-		{ origin: 'www.google.com/jose4', shortUrl: 'sjhduehduhe' },
-	];
-	res.render('home', { urls, style: './css/card.css' });
-});
+router.get('/', leerUrl);
+router.post('/', urlValidate, andUrl);
+router.get('/eliminar/:id', deleteUrl);
+router.get('/editar/:id', updateUrlForm);
+router.post('/editar/:id', urlValidate, updateUrl);
+router.get('/:shortUrl', redirect);
 module.exports = router;

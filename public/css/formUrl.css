@@ -1,0 +1,32 @@
+body {
+	grid-template-rows: repeat(3, auto) 1fr;
+}
+.form {
+	width: 20em;
+	font-size: 1rem;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 0.5em;
+}
+@media screen and (min-width: 1024px) {
+	.form {
+		width: 35em;
+	}
+}
+.form__input {
+	width: 100%;
+	padding: 0.6em 0.5em;
+	border-radius: 0.3125em;
+	border: 0.0625em solid var(--secondary);
+}
+.form__btn {
+	--bg:#0bb6d7;
+	--bc:var(--blue);
+	width: 100%;
+	height: 2.5em;
+	background-color:var(--bg);
+	border: 0.125em solid var(--bc);
+}

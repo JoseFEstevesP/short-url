@@ -5,4 +5,8 @@ document.addEventListener('click', e => {
 			'menu__nav--show'
 		);
 	}
+	if (e.target.matches('.btn--copy')) {
+const url = `http://localhost:5000/${e.target.dataset.shorturl}`;
+navigator.clipboard.writeText(url).then(()=> console.log('texto copiado en el portapapeleras')).catch(()=>console.log('error el copiar en el portapapelera'))
+	}
 });
