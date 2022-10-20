@@ -1,1 +1,23 @@
-<h1>login</h1>
+<h1 class='title'>iniciar sección usuario</h1>
+<form action='/auth/login' method='post' class='form'>
+<input type="hidden" name="_csrf" value="{{csrfToken}}" />
+	<input
+		type='text'
+		name='email'
+		placeholder='Correo...'
+		class='form__input'
+		value='jose2@jose.com'
+	/>
+	<input
+		type='password'
+		name='pass'
+		placeholder='Clave...'
+		class='form__input'
+		value='jose99'
+	/>
+	<button
+		type='submit'
+		title='form iniciar sección'
+		class='btn form__btn'
+	>iniciar</button>
+</form>

@@ -1,5 +1,6 @@
 {{#if url}}
 	<form action='/editar/{{url._id}}' method='post' class='form'>
+		<input type='hidden' name='_csrf' value='{{csrfToken}}' />
 		<input
 			type='text'
 			name='origin'
@@ -11,11 +12,12 @@
 			type='submit'
 			title='editar-url'
 			class='btn form__btn'
-			style="--bg:var(--yellow); --bc:var(--yellow);"
+			style='--bg:var(--yellow); --bc:var(--yellow);'
 		>Editar</button>
 	</form>
 {{else}}
 	<form action='/' method='post' class='form'>
+	<input type="hidden" name="_csrf" value="{{csrfToken}}" />
 		<input
 			type='text'
 			name='origin'

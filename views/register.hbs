@@ -1,0 +1,29 @@
+<link rel='stylesheet' href='css/formUrl.css' />
+<h1 class='title'>registrar usuario</h1>
+<form action='/auth/register' method='post' class='form'>
+<input type="hidden" name="_csrf" value="{{csrfToken}}" />
+	<input
+		type='text'
+		name='userName'
+		placeholder='Usuario...'
+		class='form__input'
+	/>
+	<input type='text' name='email' placeholder='Correo...' class='form__input' />
+	<input
+		type='password'
+		name='pass'
+		placeholder='Clave...'
+		class='form__input'
+	/>
+	<input
+		type='password'
+		name='pass2'
+		placeholder='Repetir clave...'
+		class='form__input'
+	/>
+	<button
+		type='submit'
+		title='form register'
+		class='btn form__btn'
+	>Enviar</button>
+</form>

@@ -5,11 +5,15 @@ const urlValidate = (req, res, next) => {
 		const urlFrontend = new URL(origin);
 		if (urlFrontend.origin !== 'null') {
 			return next();
-		} else {
-			throw new Error('no es una url valida 🤦‍♀️');
 		}
+		throw new Error('tiene que contener https://');
 	} catch (error) {
-		return res.send('url no valida');
+		if (error.message === 'Invalid URL') {
+			req.flash('mensajes', [{ msg: 'tiene que contener https://' }]);
+		} else {
+			req.flash('mensajes', [{ msg: error.message }]);
+		}
+		return res.redirect('/');
 	}
 };
 module.exports = urlValidate;

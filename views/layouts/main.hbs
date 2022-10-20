@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang='es'>
 	<head>
 		<meta charset='UTF-8' />
@@ -12,6 +13,11 @@
 	</head>
 	<body>
 		{{> Navbar}}
+		{{#each mensajes }}
+		<div class="alert">
+			<p class="alert__msg">{{this.msg}}</p>
+		</div>
+		{{/each}}
 		{{{body}}}
 	</body>
 </html>

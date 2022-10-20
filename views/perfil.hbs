@@ -1,0 +1,38 @@
+<section class='perfil'>
+	<h2 class='perfil__title'>{{user.userName}}</h2>
+	<h3 class='perfil__title'>cambia tu perfil aq</h3>
+	<div class='perfil__contentImg'>
+		{{#if imagen}}
+		<img
+			src='./img/perfiles/{{imagen}}'
+			alt='imagen del ususario NOMBRE DEL USUARIO'
+			class='perfil__img'
+		/>
+			{{else}}
+			<img
+			src='./img/perfiles/perfil.jpg'
+			alt='imagen del ususario NOMBRE DEL USUARIO'
+			class='perfil__img'
+		/>
+		{{/if}}
+	</div>
+	<form
+		action='/perfil?_csrf={{csrfToken}}'
+		method='post'
+		enctype='multipart/form-data'
+		class='formPerfil'
+	>
+		<input
+			type='file'
+			name='myFile'
+			placeholder='Selecciona la imagen de perfil'
+			class='form__input form__input--padding formPerfil__input'
+		/>
+		<button
+			type='submit'
+			title='btn perfil'
+			class='btn formPerfil__btn'
+		>Enviar</button>
+	</form>
+
+</section>
