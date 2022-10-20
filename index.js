@@ -8,7 +8,7 @@ const User = require('./models/User');
 const csrf = require('csurf');
 const mongoSanitize = require('express-mongo-sanitize');
 require('dotenv').config();
-const clientDB = require('./database/db');
+const clientDB = require('database/db');
 const cors = require('cors');
 const app = express();
 const corsOptions = {
