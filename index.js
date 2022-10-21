@@ -11,12 +11,12 @@ require('dotenv').config();
 const clientDB = require('./database/db');
 const cors = require('cors');
 const app = express();
-// const corsOptions = {
-// 	credentials: true,
-// 	origin: process.env.PATHURL || '*',
-// 	methods: ['GET', 'POST'],
-// };
-app.use(cors());
+const corsOptions = {
+	credentials: true,
+	origin: process.env.PATHURL || '*',
+	methods: ['GET', 'POST'],
+};
+app.use(cors(corsOptions));
 app.set("trust proxy", 1);
 app.use(
 	session({
@@ -28,10 +28,10 @@ app.use(
 		// 	clientPromise: clientDB,
 		// 	dbName: process.env.DBNAME,
 		// }),
-		// cookie: {
-		// 	secure: process.env.MODO === 'production',
-		// 	maxAge: 30 * 24 * 60 * 60 * 1000,
-		// },
+		cookie: {
+			secure: process.env.MODO === 'production',
+			maxAge: 30 * 24 * 60 * 60 * 1000,
+		},
 	})
 	);
 app.use(flash());
