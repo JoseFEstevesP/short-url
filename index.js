@@ -17,23 +17,23 @@ const corsOptions = {
 	methods: ['GET', 'POST'],
 };
 app.use(cors(corsOptions));
-app.set("trust proxy", 1);
+app.set('trust proxy', 1);
 app.use(
 	session({
 		secret: process.env.SECRETSESSION,
 		resave: false,
 		saveUninitialized: false,
 		name: 'session-user',
-		// store: MongoStore.create({
-		// 	clientPromise: clientDB,
-		// 	dbName: process.env.DBNAME,
-		// }),
+		store: MongoStore.create({
+			clientPromise: clientDB,
+			// dbName: process.env.DBNAME,
+		}),
 		cookie: {
 			secure: process.env.MODO === 'production',
 			maxAge: 30 * 24 * 60 * 60 * 1000,
 		},
 	})
-	);
+);
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
