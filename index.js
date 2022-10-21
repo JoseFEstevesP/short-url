@@ -8,7 +8,7 @@ const User = require('./models/User');
 const csrf = require('csurf');
 const mongoSanitize = require('express-mongo-sanitize');
 require('dotenv').config();
-const clientPromise = require('./database/db');
+const clientDB = require('./database/db.js');
 const cors = require('cors');
 const app = express();
 const corsOptions = {
@@ -25,8 +25,8 @@ app.use(
 		saveUninitialized: false,
 		name: 'session-user',
 		store: MongoStore.create({
-			clientPromise,
-			// dbName: process.env.DBNAME,
+			clientPromise: clientDB,
+			dbName: process.env.DBNAME,
 		}),
 		cookie: {
 			secure: process.env.MODO === 'production',
