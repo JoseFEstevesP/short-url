@@ -8,15 +8,15 @@ const User = require('./models/User');
 const csrf = require('csurf');
 const mongoSanitize = require('express-mongo-sanitize');
 require('dotenv').config();
-const clientDB = require('./database/db.js');
+const clientDB = require('./database/db');
 const cors = require('cors');
 const app = express();
-const corsOptions = {
-	credentials: true,
-	origin: process.env.PATHURL || '*',
-	methods: ['GET', 'POST'],
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+// 	credentials: true,
+// 	origin: process.env.PATHURL || '*',
+// 	methods: ['GET', 'POST'],
+// };
+app.use(cors());
 app.set("trust proxy", 1);
 app.use(
 	session({
@@ -24,14 +24,14 @@ app.use(
 		resave: false,
 		saveUninitialized: false,
 		name: 'session-user',
-		store: MongoStore.create({
-			clientPromise: clientDB,
-			dbName: process.env.DBNAME,
-		}),
-		cookie: {
-			secure: process.env.MODO === 'production',
-			maxAge: 30 * 24 * 60 * 60 * 1000,
-		},
+		// store: MongoStore.create({
+		// 	clientPromise: clientDB,
+		// 	dbName: process.env.DBNAME,
+		// }),
+		// cookie: {
+		// 	secure: process.env.MODO === 'production',
+		// 	maxAge: 30 * 24 * 60 * 60 * 1000,
+		// },
 	})
 	);
 app.use(flash());
