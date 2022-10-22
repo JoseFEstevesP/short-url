@@ -16,6 +16,8 @@ const corsOptions = {
 	origin: process.env.PATHURL || '*',
 	methods: ['GET', 'POST'],
 };
+clientDB
+console.log("clientDB", clientDB)
 app.use(cors(corsOptions));
 app.set("trust proxy", 1);
 app.use(
@@ -65,5 +67,5 @@ app.use('/auth', require('./routes/auth'));
 app.use(express.static(__dirname + '/public'));
 
 const PORT = process.env.PORT ?? 5000;
-// app.listen(PORT, () => console.log(`http://localhost:${PORT}/`));
-app.listen(PORT);
+app.listen(PORT, () => console.log(`http://localhost:${PORT}/`));
+// app.listen(PORT);
