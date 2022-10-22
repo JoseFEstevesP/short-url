@@ -8,7 +8,7 @@ const User = require('./models/User');
 const csrf = require('csurf');
 const mongoSanitize = require('express-mongo-sanitize');
 require('dotenv').config();
-const clientDB = require('database/db');
+const clientDB = require('./database/db');
 const cors = require('cors');
 const app = express();
 const corsOptions = {
@@ -16,8 +16,6 @@ const corsOptions = {
 	origin: process.env.PATHURL || '*',
 	methods: ['GET', 'POST'],
 };
-clientDB
-console.log("clientDB", clientDB)
 app.use(cors(corsOptions));
 app.set("trust proxy", 1);
 app.use(
