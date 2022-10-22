@@ -31,7 +31,7 @@ const registerUser = async (req, res) => {
 			from: '"Fred Foo 👻" <foo@example.com>', // sender address
 			to: user.email, // list of receivers
 			subject: 'virificar cuenta', // Subject line
-			html: `<a href="${process.env.PATHURL||'http://localhost:5000/'}/auth/confirmar/${user.tokenConfirm}">${user.userName}, verifica cuenta</a>`, // html body
+			html: `<a href="${process.env.PATHURL}/auth/confirmar/${user.tokenConfirm}">${user.userName}, verifica cuenta</a>`, // html body
 		});
 		req.flash('mensajes', [
 			{ msg: 'revisa el correo elenctronico para confirmar cuenta' },
