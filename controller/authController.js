@@ -20,7 +20,7 @@ const registerUser = async (req, res) => {
 		user = new Use({ userName, email, pass, tokenConfirm: uniqid() });
 		await user.save();
 		const transport = nodemailer.createTransport({
-			host: 'smtp.mailtrap.io',
+			host: process.env.hostNameEmail,
 			port: 2525,
 			auth: {
 				user: process.env.userEmail,
