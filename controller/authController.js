@@ -21,17 +21,21 @@ const registerUser = async (req, res) => {
 		await user.save();
 		const transport = nodemailer.createTransport({
 			host: process.env.hostNameEmail,
-			port: 2525,
+			port: 465,
+			secure: true,
 			auth: {
 				user: process.env.userEmail,
 				pass: process.env.passEmail,
 			},
 		});
 		await transport.sendMail({
-			from: '"Fred Foo 👻" <foo@example.com>', // sender address
+			from: `verificar cuenta < ${process.env.userEmail} >`, // sender address
 			to: user.email, // list of receivers
 			subject: 'virificar cuenta', // Subject line
-			html: `<a href="${process.env.PATHURL}/auth/confirmar/${user.tokenConfirm}">${user.userName}, verifica cuenta</a>`, // html body
+			html: `
+			<b>Por favor verifique su cuenta</b>
+			<a href="${process.env.PATHURL}/auth/confirmar/${user.tokenConfirm}">${user.userName}, verifica cuenta</a>
+			`, // html body
 		});
 		req.flash('mensajes', [
 			{ msg: 'revisa el correo elenctronico para confirmar cuenta' },
