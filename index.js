@@ -17,7 +17,7 @@ const corsOptions = {
 	methods: ['GET', 'POST'],
 };
 app.use(cors(corsOptions));
-app.set("trust proxy", 1);
+app.set('trust proxy', 1);
 app.use(
 	session({
 		secret: process.env.SECRETSESSION,
@@ -33,7 +33,7 @@ app.use(
 			maxAge: 30 * 24 * 60 * 60 * 1000,
 		},
 	})
-	);
+);
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
@@ -63,6 +63,5 @@ app.use((req, res, next) => {
 app.use('/', require('./routes/home'));
 app.use('/auth', require('./routes/auth'));
 app.use(express.static(__dirname + '/public'));
-
 const PORT = process.env.PORT ?? 5000;
-app.listen(PORT, () => console.log(`http://localhost:${PORT}/`));
+app.listen(PORT, () => console.log(process.env.PATHURL));
